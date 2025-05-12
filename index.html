@@ -1,105 +1,284 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Customer Support</title>
+    <title>TechGadget Pro - Amazon Product Blog</title>
     <style>
         :root {
-            --amazon-orange: #FF9900;
-            --amazon-blue: #146EB4;
-            --amazon-dark: #131921;
+            --primary: #FF9900;
+            --secondary: #146EB4;
+            --dark: #131921;
+            --light: #EAEDED;
+            --text: #0F1111;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            font-family: Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f3f3f3;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: #232F3E;
         }
         
-        .support-container {
-            text-align: center;
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 500px;
-        }
-        
-        .amazon-logo {
-            width: 100px;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            color: var(--amazon-dark);
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
-        
-        .contact-option {
-            margin: 25px 0;
-        }
-        
-        .contact-icon {
-            font-size: 32px;
-            color: var(--amazon-orange);
-            margin-bottom: 10px;
-        }
-        
-        .phone-number {
-            font-size: 24px;
+        nav a {
+            color: white;
+            text-decoration: none;
             font-weight: bold;
-            color: var(--amazon-dark);
-            margin: 10px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .product-highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-details h2 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .rating {
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--amazon-orange);
+            background-color: var(--primary);
             color: white;
-            padding: 12px 25px;
+            padding: 0.8rem 1.5rem;
+            border: none;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 1rem;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
         
         .btn:hover {
             background-color: #e68a00;
         }
+        
+        .features {
+            margin: 2rem 0;
+        }
+        
+        .features h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .features ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+        
+        .review-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .review {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .review:last-child {
+            border-bottom: none;
+        }
+        
+        .reviewer {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-rating {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="support-container">
-        <img src="https://www.amazon.com/favicon.ico" alt="Amazon Logo" class="amazon-logo">
-        <h1>Amazon Customer Support</h1>
-        
-        <div class="contact-option">
-            <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
+    <header>
+        <div class="logo">TechGadget Pro</div>
+        <p>Your trusted Amazon product reviews</p>
+    </header>
+    
+    <nav>
+        <a href="#product">Featured Product</a>
+        <a href="#features">Key Features</a>
+        <a href="#reviews">Customer Reviews</a>
+    </nav>
+    
+    <section class="hero">
+        <h1>Amazon's Bestselling Tech Gadget of 2023</h1>
+        <p>Discover why thousands of customers are raving about this innovative product that's changing lives</p>
+    </section>
+    
+    <div class="container">
+        <section id="product" class="product-highlight">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/600x600" alt="TechGadget Pro X">
             </div>
-            <h3>Call Us</h3>
-            <div class="phone-number">1-833-539-5455</div>
-            <p>24/7 customer support</p>
-            <a href="tel:18335395455" class="btn">Call Now</a>
-        </div>
-        
-        <div class="contact-option">
-            <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
+            <div class="product-details">
+                <h2>TechGadget Pro X - Ultimate Smart Device</h2>
+                <div class="rating">★★★★★ (4.8/5.0 from 2,456 reviews)</div>
+                <div class="price">$129.99 <span style="text-decoration: line-through; color: #666; font-size: 1rem;">$159.99</span></div>
+                <p>The TechGadget Pro X is the latest innovation in smart technology, combining cutting-edge features with user-friendly design. Perfect for tech enthusiasts and casual users alike.</p>
+                <a href="#" class="btn">View on Amazon</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">Prime eligible. Free delivery for members.</p>
             </div>
-            <h3>Email Us</h3>
-            <p>We'll respond within 24 hours</p>
-            <a href="mailto:support@amazon.com" class="btn">Email Support</a>
-        </div>
+        </section>
+        
+        <section id="features" class="features">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Advanced 5G connectivity for ultra-fast speeds</li>
+                <li>48-hour battery life with quick charge capability</li>
+                <li>Water and dust resistant (IP68 rating)</li>
+                <li>Crystal-clear 4K display with HDR support</li>
+                <li>Voice assistant integration (Alexa & Google Assistant)</li>
+                <li>Customizable interface with thousands of apps</li>
+            </ul>
+            
+            <h3>What's in the Box</h3>
+            <ul>
+                <li>TechGadget Pro X device</li>
+                <li>USB-C charging cable</li>
+                <li>Quick start guide</li>
+                <li>1-year limited warranty</li>
+            </ul>
+        </section>
+        
+        <section id="reviews" class="review-section">
+            <h3>Customer Reviews</h3>
+            
+            <div class="review">
+                <div class="reviewer">Sarah J. ⭐⭐⭐⭐⭐</div>
+                <div class="review-rating">★★★★★</div>
+                <p>"This gadget has completely changed how I work. The battery life is incredible and it's so lightweight. Worth every penny!"</p>
+            </div>
+            
+            <div class="review">
+                <div class="reviewer">Michael T. ⭐⭐⭐⭐</div>
+                <div class="review-rating">★★★★</div>
+                <p>"Great product overall. The screen is amazing and it's very responsive. Only reason for 4 stars is the speaker could be louder."</p>
+            </div>
+            
+            <div class="review">
+                <div class="reviewer">Emma R. ⭐⭐⭐⭐⭐</div>
+                <div class="review-rating">★★★★★</div>
+                <p>"Bought this for my husband's birthday and he hasn't put it down since! The setup was super easy and it works flawlessly with all our smart home devices."</p>
+            </div>
+            
+            <a href="#" class="btn">Read More Reviews on Amazon</a>
+        </section>
     </div>
+    
+    <footer>
+        <p>TechGadget Pro - Independent Amazon Product Reviews</p>
+        <p>We participate in the Amazon Services LLC Associates Program, an affiliate advertising program.</p>
+        <p class="disclaimer">Disclaimer: As an Amazon Associate we earn from qualifying purchases. Product prices and availability are accurate as of the date/time indicated and are subject to change.</p>
+    </footer>
 </body>
 </html>
